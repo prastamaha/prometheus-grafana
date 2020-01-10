@@ -9,24 +9,24 @@ echo "LOG: Append grafana repository into '/etc/apt/sources.list.d/grafana.list'
 touch /etc/apt/sources.list.d/grafana.list
 echo 'deb https://packages.grafana.com/oss/deb stable main' > /etc/apt/sources.list.d/grafana.list
 
-echo "LOG: Update repository"
-apt-get update
-
 echo 'LOG: Add the GPG Key'
 curl https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+echo "LOG: Update repository"
+apt-get update
 
 echo "LOG: Make sure Grafana will be installed from the official repository"
 apt-cache policy grafana
 
 echo "LOG: Install Grafana"
-apt-get install grafana
+apt-get install grafana -y
 
 echo "LOG: Start and enable Grafana servive"
 systemctl start grafana-server
 systemctl enable grafana-server
 
 echo "LOG: Install Prometheus and Prometheus Node Exporter"
-apt-get install prometheus prometheus-node-exporter
+apt-get install prometheus prometheus-node-exporter -y
 
 echo "LOG: Start and enable Prometheus service"
 systemctl start prometheus
