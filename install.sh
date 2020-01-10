@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$UEID" -ne 0 ]; then
+if [ "$EUID" -ne 0 ]; then
     echo "Please run as Root"
     exit
 fi
@@ -39,4 +39,3 @@ echo
 echo 'Grafana dasboard       : http://'$IP_ADDR':3000'
 echo 'Prometheus dasboard    : http://'$IP_ADDR':9090'
 echo 'Prometheus node metric : http://'$IP_ADDR':9100'
-echo
