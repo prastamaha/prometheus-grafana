@@ -12,11 +12,14 @@ echo 'deb https://packages.grafana.com/oss/deb stable main' > /etc/apt/sources.l
 echo "LOG: Update repository"
 apt-get update
 
+echo 'LOG: Add the GPG Key'
+curl https://packages.grafana.com/gpg.key | sudo apt-key add -
+
 echo "LOG: Make sure Grafana will be installed from the official repository"
 apt-cache policy grafana
 
 echo "LOG: Install Grafana"
-sudo apt-get install grafana
+apt-get install grafana
 
 echo "LOG: Start and enable Grafana servive"
 systemctl start grafana-server
