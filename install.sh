@@ -34,7 +34,7 @@ echo '===================='
 echo 'INSTALL SUCCESSFULLY'
 echo '===================='
 
-IP_ADDR=ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/'
+IP_ADDR=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 echo
 echo 'Grafana dasboard       : http://'$IP_ADDR':3000'
 echo 'Prometheus dasboard    : http://'$IP_ADDR':9090'
