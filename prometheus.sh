@@ -5,8 +5,8 @@ if [ "$EUID" -ne 0 ]; then
     exit
 fi
 
-$node_exporter=y
-read -p 'install node exporter in this server ( default[y] ) ? yes[y], no[n] : ' node_exporter
+node_exporter=y
+read -p 'install node exporter in this server ( default[y] ) ? yes[y], no[n] : ' $node_exporter
 
 if [ $node_exporter = y ]; then
     echo 'LOG: Installing Node Exporter'
