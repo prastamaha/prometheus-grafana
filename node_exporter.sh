@@ -49,5 +49,6 @@ else
     echo '============================'
     echo 'NODE EXPORTER INSTALL FAILED' 
     echo '============================'
+    echo
 fi
 

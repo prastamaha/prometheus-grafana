@@ -88,4 +88,5 @@ else
     echo '========================='
     echo 'PROMETHEUS INSTALL FAILED' 
     echo '========================='
+    echo
 fi
