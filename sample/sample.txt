@@ -1,0 +1,14 @@
+MEMORY
+node_memory_MemTotal{instance="localhost:9100",job="node"}
+
+CPU CORE
+count(count(node_cpu) without (mode)) without (cpu)
+
+STATUS
+up{instance="localhost:9100",job="node"}
+
+UPTIME
+(time() - process_start_time_seconds{instance="localhost:9100",job="node"})
+
+MEMORY USED
+100 * (1 - ((avg_over_time(node_memory_MemFree[24h]) + avg_over_time(node_memory_Cached[24h]) + avg_over_time(node_memory_Buffers[24h])) / avg_over_time(node_memory_MemTotal[24h])))
