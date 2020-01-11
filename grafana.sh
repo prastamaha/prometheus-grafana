@@ -33,6 +33,7 @@ systemctl enable grafana.service
 systemctl start grafana.service
 #systemctl status grafana.service
 
+ip_addr=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 state=$(systemctl is-active grafana.service)
 
 if [ $state = active ]; then
@@ -41,7 +42,7 @@ if [ $state = active ]; then
     echo 'GRAFANA INSTALL SUCCESSFULLY' 
     echo '============================'
     echo 
-    echo 'Prometheus dasboard : http://'$ip_addr':3000'
+    echo 'Grafana dasboard : http://'$ip_addr':3000'
     echo
 else
     echo
