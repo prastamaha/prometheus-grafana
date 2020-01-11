@@ -29,6 +29,7 @@ tar xvfz prometheus-2.10.0.linux-amd64.tar.gz
 cd prometheus-2.10.0.linux-amd64
 
 echo 'LOG: Create config.yml file'
+read -p 'job name : ' job_name
 read -p 'node exporter ip address: ' node_exporter_ip_addr
 
 cat > config.yml << EOF
@@ -37,10 +38,10 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: 'prometheus-[username]'
+  - job_name: 'prometheus-server'
     static_configs:
     - targets: ['$ip_addr:9090']
-  - job_name: 'node-[username]'
+  - job_name: '$job_name'
     static_configs:
     - targets: ['$ip_addr:9100','$node_exporter_ip_addr:9100']
 
@@ -68,7 +69,7 @@ echo 'LOG: Enable and start prometheus service'
 systemctl daemon-reload
 systemctl enable prometheus_server.service
 systemctl start prometheus_server.service
-systemctl status prometheus_server.service
+#systemctl status prometheus_server.service
 
 state=$(systemctl is-active prometheus_server.service)
 
@@ -78,9 +79,9 @@ if [ $state = active ]; then
     echo 'PROMETHEUS INSTALL SUCCESSFULLY' 
     echo '==============================='
     echo 
-    echo 'Prometheus dasboard : http://$ip_addr:9090'
+    echo 'Prometheus dasboard : http://'$ip_addr':9090'
     if [ $node_exporter = y ]; then
-        echo 'local node exporter : http://$ip_addr:9100'
+        echo 'local node exporter : http://'$ip_addr':9100'
     fi
 else
     echo

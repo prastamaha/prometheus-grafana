@@ -31,7 +31,7 @@ echo 'LOG: enable and start node exporter service'
 systemctl daemon-reload
 systemctl enable node_exporter.service
 systemctl start node_exporter.service
-systemctl status node_exporter.service
+#systemctl status node_exporter.service
 
 state=$(systemctl is-active node_exporter.service)
 ip_addr=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
