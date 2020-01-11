@@ -34,12 +34,16 @@ systemctl start node_exporter.service
 systemctl status node_exporter.service
 
 state=$(systemctl is-active node_exporter.service)
+ip_addr=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 
 if [ $state = active ]; then
     echo
     echo '===================='
     echo 'INSTALL SUCCESSFULLY' 
     echo '===================='
+    echo 
+    echo 'check node exporter metric: http://'$ip_addr':9100'
+    echo 
 else
     echo
     echo '=============='
