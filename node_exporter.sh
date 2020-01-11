@@ -38,16 +38,16 @@ ip_addr=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1 
 
 if [ $state = active ]; then
     echo
-    echo '===================='
-    echo 'INSTALL SUCCESSFULLY' 
-    echo '===================='
+    echo '=================================='
+    echo 'NODE EXPORTER INSTALL SUCCESSFULLY' 
+    echo '=================================='
     echo 
     echo 'check node exporter metric: http://'$ip_addr':9100'
     echo 
 else
     echo
-    echo '=============='
-    echo 'INSTALL FAILED' 
-    echo '=============='
+    echo '============================'
+    echo 'NODE EXPORTER INSTALL FAILED' 
+    echo '============================'
 fi
 
