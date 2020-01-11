@@ -43,6 +43,8 @@ if [ $state = active ]; then
     echo '============================'
     echo 
     echo 'Grafana dasboard : http://'$ip_addr':3000'
+    echo 'default user     : admin'
+    echo 'default passowrd : admin'
     echo
 else
     echo
