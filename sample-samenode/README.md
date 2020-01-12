@@ -11,10 +11,10 @@ this script musht be run with root privilege
 
 install the prometheus and grafana with this command:
 
-    cd prometheus-grafana
+    cd prometheus-grafana/sample-samenode
     sudo ./install.sh
 
 uninstall the prometheus and grafana with this command:
 
-    cd prometheus-grafana
+    cd prometheus-grafana/sample-samenode
     sudo ./remove.sh
