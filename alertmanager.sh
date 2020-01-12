@@ -24,8 +24,9 @@ cd alertmanager-0.20.0.linux-amd64
 
 echo "======================================================================================="
 echo 'note: use gmail, please active "Less secure app access". use this link: https://myaccount.google.com/lesssecureapps'
-read -p 'email : ' email_from
-read -ps 'password : ' email_pass
+read -p 'gmail account : ' email_from
+echo -n 'password : '
+read -s email_pass
 read -p 'send to : ' email_send
 
 resolve_timeout=10s
