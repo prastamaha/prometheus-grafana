@@ -40,8 +40,8 @@ groups:
     expr: up{job="$job_name"} == 0
     for: $resolve_timeout
     annotations:
-      summary: "Instance {{ $labels.instance }} down"
-      description: "Instance {{ $labels.instance }} of job {{ $labels.job }} has been down. Please check it up."
+      summary: "Instance {{ \$labels.instance }} down"
+      description: "Instance {{ \$labels.instance }} of job {{ \$labels.job }} has been down. Please check it up."
 
 EOF
 
