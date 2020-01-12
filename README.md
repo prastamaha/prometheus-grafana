@@ -11,7 +11,9 @@ all of the script must be run with sudo or root user
 
 ## **Use Case Example**
 
-topology: 
+__Topology:__ 
+
+![](images/Prometheus-grafana-ex.png)
 
 ## **Clone Repository**
 
