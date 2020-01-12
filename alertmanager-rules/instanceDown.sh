@@ -45,6 +45,8 @@ groups:
 
 EOF
 
+ip_addr=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
+
 echo 'LOG: Update prometheus config.yml'
 cat >> config.yml << EOF
 alerting:
@@ -55,7 +57,6 @@ alerting:
 
 rule_files:
   - "node_rules_instance_down.yml"
-
 EOF
 
 echo 'LOG: check config.yml'
@@ -67,7 +68,6 @@ systemctl restart alert_manager.service
 
 state1=$(systemctl is-active alert_manager.service)
 state2=$(systemctl is-active prometheus_server.service)
-ip_addr=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 
 if [ $state1 = active ] && [ $state2 = active ]; then
     echo
