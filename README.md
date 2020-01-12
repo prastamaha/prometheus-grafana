@@ -1,10 +1,10 @@
 # **Prometheus with Grafana Installer**
 
 This script uses version:
-prometheus      : 2.15.2
-node_exporter   : 6.5.2
-grafana         : 0.18.1
-alert manager   : 0.20.0
+- prometheus      : 2.15.2
+- node_exporter   : 6.5.2
+- grafana         : 0.18.1
+- alert manager   : 0.20.0
 
 all of the script must be run with sudo or root user
 
